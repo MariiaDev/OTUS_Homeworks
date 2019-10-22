@@ -11,15 +11,16 @@
 
     <modules>
         <module>hw01-maven</module>
+        <module>hw02-generics</module>
     </modules>
 
     <dependencies>
-    <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-    <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>28.1-jre</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.1-jre</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -34,7 +35,6 @@
             </plugin>
         </plugins>
     </build>
-
 
 
 </project>
