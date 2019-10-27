@@ -1,9 +1,6 @@
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
-public class DIYarrayList<T> implements List<T>  {
+public class DIYarrayList<T> implements List<T> {
 
     @Override
     public int size() {
@@ -17,7 +14,7 @@ public class DIYarrayList<T> implements List<T>  {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        throw new UnsupportedOperationException( );
     }
 
     @Override
@@ -119,4 +116,16 @@ public class DIYarrayList<T> implements List<T>  {
     public List<T> subList(int fromIndex, int toIndex) {
         return null;
     }
+
+    public void addAll(Collection<? super T> c, T... elements) {
+    }
+
+    public void copy(List<? super T> dest, List<? extends T> src) {
+
+    }
+
+    public void sort(List<T> list, Comparator<? super T> c) {
+
+    }
+
 }
