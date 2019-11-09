@@ -1,12 +1,17 @@
+package ru.otus.homework;
+
+import ru.otus.homework.arrayListClass.DIYarrayList;
+
+import java.util.Collections;
 import java.util.Comparator;
 
-public class Main {
+public class Main  {
 
     public static void main(String args[])  {
 
-        DIYarrayList<Fruit> fruits = new DIYarrayList<Fruit>();
+        DIYarrayList<Fruit> fruits = new DIYarrayList();
 
-        DIYarrayList<Fruit> basket = new DIYarrayList<Fruit>();
+        DIYarrayList<Fruit> basket = new DIYarrayList();
 
         Fruit apple = new Fruit("apple");
         Fruit orange = new Fruit("orange");
@@ -47,6 +52,8 @@ public class Main {
         Fruit strawberry = new Fruit("strawberry");
         Fruit cherry = new Fruit("cherry");
 
+        Fruit ananas = new Fruit("ananas");
+
         fruits.add(apple);
         fruits.add(orange);
         fruits.add(lemon);
@@ -83,31 +90,38 @@ public class Main {
         fruits.add(grape2);
         fruits.add(kiwi2);
 
-        basket.addAll(fruits, strawberry, cherry);
+        basket.add(ananas);
 
-        basket.copy(fruits, basket);
+        /*
+        Проверить, что на ней работают методы из java.util.Collections:
+        Collections.addAll(Collection<? super T> c, T... elements)
+        Collections.static <T> void copy(List<? super T> dest, List<? extends T> src)
+        Collections.static <T> void sort(List<T> list, Comparator<? super T> c)
+        */
 
-        fruits.sort(basket, Fruit.Comparators.NAME);
+        Collections.addAll(fruits, strawberry, cherry);
 
-        fruits.contains(cherry);
+        Collections.copy(fruits, basket);
+
+        Collections.sort(fruits, Fruit.Comparators.NAME);
+
     }
 
-    private static class Fruit {
+    private static class Fruit implements Comparator<Fruit> {
         String name;
         public Fruit(String name) {
             this.name = name;
         }
 
-        public static class Comparators {
-
-            public static Comparator<Fruit> NAME = new Comparator<Fruit>() {
-                @Override
-                public int compare(Fruit fruit1, Fruit fruit2) {
-                    return fruit1.name.compareTo(fruit2.name);
-                }
-            };
+        @Override
+        public int compare(Fruit o1, Fruit o2) {
+            return 0;
         }
 
+        public static class Comparators {
+
+            public static Comparator<Fruit> NAME = Comparator.comparing(fruit -> fruit.name);
+        }
     }
 
 }
